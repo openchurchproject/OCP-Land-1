@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Open Church Project | Land, Dignity, Ownership</title>
+  <link rel="icon" type="image/png" href="https://github.com/TitanBusinessPros/OCP-Land/raw/main/OCP-Logo-T.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      background: #0F0E0E;
+      color: #E8E2D4;
+      line-height: 1.5;
+    }
+
+    .bg-overlay {
+      background: radial-gradient(circle at 30% 10%, #1F1B17, #0A0908);
+      min-height: 100vh;
+    }
+
+    .app-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header */
+    .main-header {
+      background: rgba(15, 14, 14, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 0 0 32px 32px;
+      padding: 1rem 2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-text {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #F3DE8A, #D4AF37);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: #D4AF37;
+      color: #0A0908;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      font-family: inherit;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #F3DE8A;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      padding: 0.65rem 1.5rem;
+      font-weight: 600;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-secondary:hover {
+      background: #D4AF37;
+      color: #0A0908;
+    }
+
+    .page {
+      display: none;
+      animation: fadeInUp 0.35s ease-out;
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* hero section - adjusted for larger logo and tighter spacing */
+    .hero-centered {
+      text-align: center;
+      margin-bottom: 1rem;
+      padding: 0.25rem 1rem 0 1rem;  /* reduced top padding, eliminated extra space */
+    }
+
+    .hero-logo {
+      width: min(960px, 85vw);   /* doubled from 520px to ~1040px but capped at 85vw for responsiveness */
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 0.15rem;     /* minimal margin below logo */
+      margin-top: -0.25rem;       /* pull slightly upward to reduce gap from header */
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5));
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .hero-logo:hover {
+      transform: scale(1.01);
+    }
+
+    .home-carousel {
+      max-width: 850px;
+      margin: 0.25rem auto 0.5rem auto;  /* reduced top margin to close gap further */
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 28px -8px rgba(0,0,0,0.6);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+
+    .home-carousel-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .home-carousel-caption {
+      text-align: center;
+      padding: 0.5rem;
+      background: #12100E;
+      color: #F3DE8A;
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    .hero-centered h1 {
+      font-size: 3.2rem;
+      background: linear-gradient(135deg, #F8F0DC, #D4AF37);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-centered p {
+      font-size: 1.2rem;
+      max-width: 750px;
+      margin: 0.25rem auto 0;
+      color: #C9C3B2;
+    }
+
+    /* cards */
+    .section-card {
+      background: rgba(20, 18, 16, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 36px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+
+    .section-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 36px rgba(0, 0, 0, 0.4);
+      border-color: rgba(212, 175, 55, 0.6);
+    }
+
+    .section-card h2 {
+      color: #F3DE8A;
+      border-bottom: 2px solid #D4AF37;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      letter-spacing: -0.2px;
+    }
+
+    .section-card p {
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #DDD6C5;
+    }
+
+    .grid-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.8rem;
+    }
+
+    .feature-badge {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 1.2rem;
+      font-weight: 500;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      transition: all 0.2s;
+    }
+
+    .feature-badge:hover {
+      background: rgba(212, 175, 55, 0.12);
+      border-color: #D4AF37;
+    }
+
+    .volunteer-box {
+      margin-top: 2rem;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 32px;
+      padding: 1.6rem;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      text-align: center;
+    }
+
+    .volunteer-box h3 {
+      color: #F3DE8A;
+      margin-bottom: 0.8rem;
+      font-size: 1.6rem;
+    }
+
+    /* OCP-1 page specific */
+    .ocp1-carousel {
+      max-width: 850px;
+      margin: 0 auto 1.5rem auto;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 28px -8px black;
+      border: 1px solid #D4AF37;
+    }
+
+    .ocp1-carousel-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ocp1-carousel-caption {
+      text-align: center;
+      padding: 0.7rem;
+      background: #12100E;
+      color: #F3DE8A;
+      font-weight: 500;
+    }
+
+    /* signup section - directly under carousel */
+    .signup-section {
+      background: rgba(212, 175, 55, 0.08);
+      border-radius: 32px;
+      padding: 1.8rem;
+      margin: 0 0 2rem 0;
+      text-align: center;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      backdrop-filter: blur(4px);
+    }
+
+    .signup-section p {
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      color: #F0E2C5;
+    }
+
+    .signup-button {
+      background: #D4AF37;
+      color: #0A0908;
+      padding: 0.9rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: 60px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .signup-button:hover {
+      background: #F3DE8A;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin: 1.8rem 0;
+      text-align: left;
+    }
+
+    .info-block {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 1.3rem 1.6rem;
+      border-left: 5px solid #D4AF37;
+      transition: 0.2s;
+    }
+
+    .info-block:hover {
+      background: rgba(0, 0, 0, 0.65);
+      transform: translateX(4px);
+    }
+
+    .info-block h3 {
+      color: #F3DE8A;
+      margin-bottom: 0.75rem;
+      font-size: 1.35rem;
+    }
+
+    .highlight {
+      font-weight: 800;
+      color: #F0C45A;
+    }
+
+    footer {
+      background: rgba(10, 9, 8, 0.95);
+      text-align: center;
+      padding: 2rem;
+      border-radius: 32px 32px 0 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #D4AF37;
+    }
+
+    hr {
+      margin: 1.5rem 0;
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    @media (max-width: 720px) {
+      .app-wrapper {
+        padding: 0 16px;
+      }
+      .home-carousel-img, .ocp1-carousel-img {
+        height: 260px;
+      }
+      .hero-centered h1 {
+        font-size: 2.2rem;
+      }
+      .hero-logo {
+        width: min(90vw, 540px);   /* on mobile, still larger but capped for readability */
+        margin-top: 0;
+      }
+      .hero-centered {
+        padding: 0 1rem 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-overlay">
+<div class="app-wrapper">
+  <header class="main-header">
+    <span class="brand-text">The Open Church Project</span>
+    <div class="nav-buttons">
+      <button id="homeNavBtn" class="btn-secondary">🏠 Home</button>
+      <button id="ocp1NavBtn" class="btn-primary">OCP-1 →</button>
+    </div>
+  </header>
+
+  <!-- ================= HOME PAGE ================= -->
+  <div id="homePage" class="page active-page">
+    <div class="hero-centered">
+      <img class="hero-logo" src="https://github.com/TitanBusinessPros/OCP-Land/raw/main/OCP-Logo-T.png" alt="Open Church Project Logo">
+      <div class="home-carousel" id="homeCarousel">
+        <img id="homeCarouselImg" class="home-carousel-img" src="https://github.com/TitanBusinessPros/OCP-Land/raw/main/Fenced.webp" alt="OCP landscape">
+        <div class="home-carousel-caption">✨ OCP Communities — Your future starts here ✨</div>
+      </div>
+      <h1>Land. Dignity. Ownership.</h1>
+      <p>The Open Church Project empowers homeless and low-income individuals to own land, build community, and thrive — with affordable down payments in the hundreds and monthly payments as low as $50–$100.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>🏡 The Open Church Project Model</h2>
+      <p>We set up properties where homeless people and low-income families can own their own land and live in communities with <strong>restrooms, showers, lighting, internet, electric, trash, and water</strong>. A small down payment (hundreds, not thousands) and affordable monthly payments ($50–$100) make land ownership achievable. Residents eventually own the land outright.</p>
+      <p style="margin-top: 1rem;">OCP facilitates <strong>marketing, advertising, project development, education, tech training, agriculture, and more</strong> to ensure each project succeeds. Every OCP site integrates sustainable agriculture & renewable energy, and we advocate for building materials & volunteers to build homes for the homeless.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>🤝 Community, Mentorship & Independence</h2>
+      <p>Each OCP Community comes with mentors, volunteers, and staff from several Oklahoma organizations ready to assist! We create long-term stability and independence through hands-on training, accountability, and shared responsibility. Residents gain pathways from homelessness to permanent housing and financial independence.</p>
+      <div class="grid-features">
+        <div class="feature-badge">✅ Skill-building & tech training</div>
+        <div class="feature-badge">✅ Sustainable agriculture & energy</div>
+        <div class="feature-badge">✅ Volunteer construction & materials</div>
+        <div class="feature-badge">✅ Transition to ownership</div>
+      </div>
+      <div class="volunteer-box">
+        <h3>Volunteer Camp</h3>
+        <p>Each OCP has a small volunteer camp for volunteers of The OCP to serve the community. Volunteers range from mentors to builders to many positions. All volunteers are screened before being allowed onsite.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2>🌿 First Project: OCP-1 (Choctaw County, OK)</h2>
+      <p><strong>16 acres near Hugo, OK</strong> — water well, power poles, pond. 50 household lots (0.25 acres each). Down payment <strong>$400</strong> + monthly <strong>$100</strong> to own your land. Abundant whitetail deer & hogs, county-maintained road frontage, Soper School District. Community transport, security, kitchen & laundry. <strong>Click "OCP-1" above to explore the full vision, image gallery, and all amenities.</strong></p>
+      <div style="margin-top: 1.5rem;">
+        <button id="exploreOcp1BtnHome" class="btn-primary" style="font-size: 1.05rem;">🔍 Discover OCP-1 Property →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= OCP-1 DETAIL PAGE ================= -->
+  <div id="ocp1Page" class="page">
+    <!-- Carousel -->
+    <div class="ocp1-carousel">
+      <img id="ocp1CarouselImg" class="ocp1-carousel-img" src="https://github.com/TitanBusinessPros/OCP-Land/raw/main/Fenced.webp" alt="OCP-1 property">
+      <div class="ocp1-carousel-caption">📍 OCP-1 — Choctaw County, near Hugo, OK</div>
+    </div>
+
+    <!-- SIGNUP SECTION directly under images -->
+    <div class="signup-section">
+      <p><strong>📋 Interested in joining OCP-1?</strong> This is not free land — it requires monthly dues and a small deposit. OCP-1 is for <strong>50 sign-ups</strong>. If 50 sign-ups do not happen, you will be directed to another OCP community project that most closely meets your needs.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPU_qVFAIxWiRarYscyhgubrfdHGSfe_r762MQiLJ0nmstwA/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="signup-button">✍️ Sign Up for OCP-1 →</a>
+    </div>
+
+    <div class="section-card">
+      <h2>📍 OCP-1 | Choctaw County, near Hugo, Oklahoma</h2>
+      <div class="info-grid">
+        <div class="info-block"><h3>🌾 Land & Layout</h3>16 acres total • 50 household lots (0.25 acre each) • Remaining space for roads, restrooms, showers, septic, community kitchen, agriculture, tech school. <strong>Abundance of whitetail deer & hogs</strong>. County maintained road frontage (south boundary). <strong>Soper School District</strong> for children.</div>
+        <div class="info-block"><h3>💧 Utilities & Infrastructure</h3>Existing water well, power poles, pond. Portable toilets & trash services until septic installed. Future: full restrooms, showers, septic, community laundry facility.</div>
+        <div class="info-block"><h3>🏡 Ownership & Costs</h3><span class="highlight">Down payment: $400</span> • <span class="highlight">Monthly: $100</span> → eventually own your land. No weird rules, just trust agreement with common-sense guidelines (no violence, vote-out process). Beneficiaries control upgrades after initial required amenities.</div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-block"><h3>🚐 Transportation & Services</h3>OCP-1 provides <strong>community transportation</strong> for grocery runs, errands. Doctor appointments via state programs (transportation included). For residents with school-aged children: Soper School District bus access.</div>
+        <div class="info-block"><h3>🍲 Community Kitchen & Laundry</h3>Deep freezer, propane oven, basic kitchen supplies. On-site <strong>laundry facility</strong> for residents. Shared meals and community building.</div>
+        <div class="info-block"><h3>🛡️ Security & First Responders</h3><strong>24/7 armed security guards</strong> (defenders, not police) protect against wildlife & outside dangers. Trained in firearms. Plus: first-aid station, 2 members trained in CPR/First-Aid, <strong>mini field hospital</strong> stocked with life-saving medicines & kits. Security & first responders stay onsite 24/7.</div>
+      </div>
+
+      <div class="info-block" style="margin-top: 0.5rem;">
+        <h3>Community Rules</h3>
+        <p><strong>No curfew or weird rules</strong> — this is YOUR property, and you're a grown adult. The trust agreement ensures basic order (no violence, destructive behavior). Beneficiaries can vote out rule-breakers, keeping the community safe and respectful. Beneficiaries will be responsible & in control of upgrades after first initial required upgrades like showers and restrooms.</p>
+        <p style="margin-top: 10px;"><strong>✨ The Open Church Project provides mentors, staff, and ongoing support from Oklahoma organizations to ensure success, sustainability, and true independence.</strong></p>
+      </div>
+      <hr>
+      <div style="display: flex; justify-content: center; gap: 20px; margin-top: 1rem;">
+        <button id="backToHomeBtn" class="btn-secondary">← Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 The Open Church Project — Restoring hope, land equity & self-sustaining communities in Oklahoma.</p>
+    <p style="margin-top: 0.5rem;">📍 OCP-1: Choctaw County, near Hugo, OK | Volunteer + partner inquiries welcome</p>
+  </footer>
+</div>
+
+<!-- Hidden audio element: plays only when OCP-1 page becomes active -->
+<audio id="ocpThemeSong" preload="auto" style="display: none;">
+  <source src="https://github.com/TitanBusinessPros/OCP-Land/raw/main/Open%20Church%20Over%20Acres%20(1).mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Carousel images array
+  const carouselImages = [
+    "https://github.com/TitanBusinessPros/OCP-Land/raw/main/Fenced.webp",
+    "https://github.com/TitanBusinessPros/OCP-Land/raw/main/Pond-1.webp",
+    "https://github.com/TitanBusinessPros/OCP-Land/raw/main/Road.webp",
+    "https://github.com/TitanBusinessPros/OCP-Land/raw/main/Well-Power.webp",
+    "https://github.com/TitanBusinessPros/OCP-Land/raw/main/meadow.webp"
+  ];
+  
+  // DOM elements
+  const homePageDiv = document.getElementById('homePage');
+  const ocp1PageDiv = document.getElementById('ocp1Page');
+  const homeNavBtn = document.getElementById('homeNavBtn');
+  const ocp1NavBtn = document.getElementById('ocp1NavBtn');
+  const backToHomeBtn = document.getElementById('backToHomeBtn');
+  const exploreOcp1BtnHome = document.getElementById('exploreOcp1BtnHome');
+  const homeImg = document.getElementById('homeCarouselImg');
+  const ocp1Img = document.getElementById('ocp1CarouselImg');
+  
+  // Audio element for OCP-1 page song
+  const ocpAudio = document.getElementById('ocpThemeSong');
+  
+  // ---------- Audio Control (only for OCP-1 page) ----------
+  function playOcp1Audio() {
+    if (!ocpAudio) return;
+    // Reset to beginning and play
+    ocpAudio.pause();
+    ocpAudio.currentTime = 0;
+    ocpAudio.play().catch(err => {
+      console.warn("Audio autoplay prevented? User gesture present, safe fallback:", err);
+    });
+  }
+  
+  function pauseOcp1Audio() {
+    if (!ocpAudio) return;
+    ocpAudio.pause();
+  }
+  
+  // Carousel logic (Home)
+  let homeCurrent = 0;
+  let homeInterval = null;
+  
+  function startHomeCarousel() {
+    if (homeInterval) clearInterval(homeInterval);
+    if (!homeImg) return;
+    homeInterval = setInterval(() => {
+      homeCurrent = (homeCurrent + 1) % carouselImages.length;
+      homeImg.src = carouselImages[homeCurrent];
+    }, 3000);
+  }
+  
+  function stopHomeCarousel() {
+    if (homeInterval) {
+      clearInterval(homeInterval);
+      homeInterval = null;
+    }
+  }
+  
+  function resetHomeCarousel() {
+    homeCurrent = 0;
+    if (homeImg) homeImg.src = carouselImages[0];
+  }
+  
+  // OCP-1 Carousel logic
+  let ocp1Current = 0;
+  let ocp1Interval = null;
+  
+  function startOcp1Carousel() {
+    if (ocp1Interval) clearInterval(ocp1Interval);
+    if (!ocp1Img) return;
+    ocp1Interval = setInterval(() => {
+      ocp1Current = (ocp1Current + 1) % carouselImages.length;
+      ocp1Img.src = carouselImages[ocp1Current];
+    }, 3000);
+  }
+  
+  function stopOcp1Carousel() {
+    if (ocp1Interval) {
+      clearInterval(ocp1Interval);
+      ocp1Interval = null;
+    }
+  }
+  
+  function resetOcp1Carousel() {
+    ocp1Current = 0;
+    if (ocp1Img) ocp1Img.src = carouselImages[0];
+  }
+  
+  // ---------- Page navigation with audio rules ----------
+  function showHomePage() {
+    if (homePageDiv.classList.contains('active-page')) return;
+    
+    stopOcp1Carousel();
+    pauseOcp1Audio();
+    
+    homePageDiv.classList.add('active-page');
+    ocp1PageDiv.classList.remove('active-page');
+    
+    resetHomeCarousel();
+    startHomeCarousel();
+    document.title = "The Open Church Project | Home";
+  }
+  
+  function showOcp1Page() {
+    if (ocp1PageDiv.classList.contains('active-page')) return;
+    
+    stopHomeCarousel();
+    
+    homePageDiv.classList.remove('active-page');
+    ocp1PageDiv.classList.add('active-page');
+    
+    resetOcp1Carousel();
+    startOcp1Carousel();
+    document.title = "The Open Church Project | OCP-1 Property";
+    
+    // Play the dedicated song for OCP-1 page
+    playOcp1Audio();
+  }
+  
+  // Attach event listeners
+  if (homeNavBtn) homeNavBtn.addEventListener('click', showHomePage);
+  if (ocp1NavBtn) ocp1NavBtn.addEventListener('click', showOcp1Page);
+  if (backToHomeBtn) backToHomeBtn.addEventListener('click', showHomePage);
+  if (exploreOcp1BtnHome) exploreOcp1BtnHome.addEventListener('click', showOcp1Page);
+  
+  // Initialize: home page active, no audio playing
+  (function init() {
+    stopHomeCarousel();
+    stopOcp1Carousel();
+    pauseOcp1Audio();
+    homePageDiv.classList.add('active-page');
+    ocp1PageDiv.classList.remove('active-page');
+    resetHomeCarousel();
+    startHomeCarousel();
+    document.title = "The Open Church Project | Home";
+    if (ocpAudio) {
+      ocpAudio.load();
+      ocpAudio.pause();
+      ocpAudio.currentTime = 0;
+    }
+  })();
+  
+  // Graceful error handling for audio
+  if (ocpAudio) {
+    ocpAudio.addEventListener('error', (e) => {
+      console.warn("Audio file could not be loaded. Check URL or network.");
+    });
+  }
+  
+  if (homeImg) homeImg.onerror = () => {};
+  if (ocp1Img) ocp1Img.onerror = () => {};
+</script>
+</body>
+</html>
