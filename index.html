@@ -122,7 +122,7 @@
       }
     }
 
-    /* hero section - adjusted for larger logo and tighter spacing */
+    /* hero section */
     .hero-centered {
       text-align: center;
       margin-bottom: 1rem;
@@ -285,7 +285,7 @@
       font-weight: 500;
     }
 
-    /* signup section - directly under carousel */
+    /* signup section */
     .signup-section {
       background: rgba(212, 175, 55, 0.08);
       border-radius: 32px;
@@ -345,15 +345,30 @@
       transform: translateX(4px);
     }
 
+    /* Centered headers inside info blocks (for OCP-1 and OCP-2 pages) */
     .info-block h3 {
       color: #F3DE8A;
       margin-bottom: 0.75rem;
       font-size: 1.35rem;
+      text-align: center;
     }
 
     .highlight {
       font-weight: 800;
       color: #F0C45A;
+    }
+
+    /* Important callout box for Free Land page */
+    .important-callout {
+      background: rgba(212, 175, 55, 0.15);
+      border-left: 6px solid #D4AF37;
+      border-radius: 20px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #F3DE8A;
     }
 
     footer {
@@ -397,6 +412,7 @@
     <span class="brand-text">The Open Church Project</span>
     <div class="nav-buttons">
       <button id="homeNavBtn" class="btn-secondary">🏠 Home</button>
+      <button id="freeLandNavBtn" class="btn-secondary">📋 Free Land Form</button>
       <button id="ocp1NavBtn" class="btn-primary">OCP-1 →</button>
       <button id="ocp2NavBtn" class="btn-primary">OCP-2 →</button>
     </div>
@@ -407,8 +423,8 @@
     <div class="hero-centered">
       <img class="hero-logo" src="https://github.com/TitanBusinessPros/OCP-Land/raw/main/OCP-Logo-T.png" alt="Open Church Project Logo">
       <div class="home-carousel" id="homeCarousel">
-        <img id="homeCarouselImg" class="home-carousel-img" src="https://github.com/TitanBusinessPros/OCP-Land/raw/main/Fenced.webp" alt="OCP landscape">
-        <div class="home-carousel-caption">✨ OCP Communities — Your future starts here ✨</div>
+        <img id="homeCarouselImg" class="home-carousel-img" src="https://github.com/openchurchproject/OCP-Land-1/raw/main/Macomb-1.jpg" alt="OCP Macomb landscape">
+        <div class="home-carousel-caption">🌾 OCP Communities — New vision for Macomb, OK 🌾</div>
       </div>
       <h1>Land. Dignity. Ownership.</h1>
       <p>The Open Church Project empowers homeless and low-income individuals to own land, build community, and thrive — with affordable down payments in the hundreds and monthly payments as low as $50–$100.</p>
@@ -444,10 +460,10 @@
       </div>
     </div>
 
-    <!-- NEW: OCP-2 Project on Homepage (placed directly under OCP-1) -->
+    <!-- OCP-2 Project on Homepage -->
     <div class="section-card">
-      <h2>🌵 Second Project: OCP-2 (Greer County, near Mangum, OK)</h2>
-      <p><strong>10 acres off-grid in Greer County, Oklahoma</strong> — closest town Mangum, OK. <strong>36 quarter-acre lots</strong> Down payment <strong>$100</strong> + monthly <strong>$100 per household</strong> to own your land. Solar & generator power, community water tanks (well to be drilled). Members elect their own security & first responders. OCP advocates for free cars for homeless residents. Off-grid community with shared gardens, outdoor kitchen, and full OCP support. <strong>Click "OCP-2" below for full details, image gallery, and community vision.</strong></p>
+      <h2>🏞️ Second Project: OCP-2 (Macomb, Oklahoma)</h2>
+      <p><strong>7.5 acres in Macomb, OK</strong> — beautiful property with a pond, electric and water connections already available at the road. <strong>24 quarter-acre household lots</strong>. Down payment <strong>$350</strong> + monthly <strong>$100</strong> to own your land. A generator will be needed to start; OCP will build and equip a community center with a full kitchen, dining area, and gathering space. This community project blends rural peace with road-accessible utilities, offering a strong foundation for land ownership and mutual support.</p>
       <div style="margin-top: 1.5rem;">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScEiKaqXYdVBI8SqvNTMdh_ZxuCGaAo7SRpwLq11mT-3jYdyQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1.05rem; text-decoration: none; display: inline-block;">✍️ Sign Up for OCP-2 →</a>
         <button id="exploreOcp2BtnHome" class="btn-secondary" style="margin-left: 12px;">🔍 Discover OCP-2 Property →</button>
@@ -493,43 +509,38 @@
     </div>
   </div>
 
-  <!-- ================= OCP-2 DETAIL PAGE ================= -->
+  <!-- ================= UPDATED OCP-2 DETAIL PAGE ================= -->
   <div id="ocp2Page" class="page">
     <div class="ocp2-carousel">
-      <img id="ocp2CarouselImg" class="ocp2-carousel-img" src="https://github.com/openchurchproject/OCP-Land-1/raw/main/Mangum-1.webp" alt="OCP-2 Mangum property">
-      <div class="ocp2-carousel-caption">🌄 OCP-2 — Greer County, near Mangum, OK</div>
+      <img id="ocp2CarouselImg" class="ocp2-carousel-img" src="https://github.com/openchurchproject/OCP-Land-1/raw/main/Macomb-1.jpg" alt="OCP-2 Macomb property">
+      <div class="ocp2-carousel-caption">📍 OCP-2 — Macomb, Oklahoma | 7.5 acres with pond & utilities at road</div>
     </div>
 
     <div class="signup-section">
-      <p><strong>📋 Interested in joining OCP-2?</strong> This is not free land — it requires monthly dues and a small deposit. OCP-2 is for <strong>up to 36 sign-ups (quarter-acre lots)</strong>. If 36 sign-ups do not happen, you will be directed to another OCP community project that most closely meets your needs.</p>
+      <p><strong>📋 Interested in joining OCP-2 in Macomb, OK?</strong> This is not free land — it requires monthly dues and a small deposit. OCP-2 is for <strong>up to 24 sign-ups (quarter-acre lots)</strong>. If 24 sign-ups do not happen, you will be directed to another OCP community project that most closely meets your needs.</p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScEiKaqXYdVBI8SqvNTMdh_ZxuCGaAo7SRpwLq11mT-3jYdyQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="signup-button">✍️ Sign Up for OCP-2 →</a>
     </div>
 
     <div class="section-card">
-      <h2>📍 OCP-2 | Greer County, near Mangum, Oklahoma</h2>
+      <h2>📍 OCP-2 | Macomb, Oklahoma – Land, Pond & Community Hub</h2>
       <div class="info-grid">
-        <div class="info-block"><h3>🌾 Land & Layout</h3>10 acres total in <strong>Greer County, Oklahoma</strong>. Up to 36 quarter-acre household lots + common areas for gardens, gathering spaces, and future infrastructure. Closest town: <strong>Mangum, OK</strong>. Beautiful rural landscape with wide-open skies and a strong sense of frontier community.</div>
-        <div class="info-block"><h3>🔋 Off-Grid & Power</h3>This is an <strong>off-grid property</strong>. Residents will utilize <strong>solar power and backup generators</strong>. Shared community solar array + generator hub for common buildings; each household encouraged to bring or build personal solar. Sustainable, self-reliant living.</div>
-        <div class="info-block"><h3>💧 Water System</h3>Community water tanks will supply fresh water until a well is successfully drilled. Conservation practices and water delivery schedules will be implemented. Long-term goal: develop a deep well for reliable, abundant water. (Rainwater catchment is not used in Oklahoma per state regulations.)</div>
+        <div class="info-block"><h3>🌾 Land & Layout</h3>7.5 acres total in <strong>Macomb, OK</strong>. Features a scenic pond, electric and water connections already available on the road. The project includes <strong>24 quarter-acre household lots</strong> plus common areas for gardens, the future community center, and shared green space. Peaceful rural setting with easy utility access.</div>
+        <div class="info-block"><h3>⚡ Power & Generator Start</h3>A generator will be needed initially to power community essentials while permanent electrical infrastructure is finalized. OCP will coordinate the setup of a reliable power backbone. Long-term: grid electric connection ready at the road for expansion.</div>
+        <div class="info-block"><h3>💧 Water & Utilities</h3>Water connection available at the road, providing a straightforward path for potable water distribution to each lot. The pond adds natural beauty, stormwater retention, and potential for small-scale irrigation. OCP will oversee water line extension from the road connection.</div>
       </div>
 
       <div class="info-grid">
-        <div class="info-block"><h3>🏡 Ownership & Costs</h3><span class="highlight">Down payment: $100</span> • <span class="highlight">Monthly: $100 per household</span> → you get a <strong>quarter acre</strong> that you will eventually own. No hidden fees, trust agreement with fair rules (no violence, vote-out process). Residents control upgrades after core amenities are in place.</div>
-        <div class="info-block"><h3>🚐 Transportation & Services</h3>OCP-2 provides advocacy for <strong>free cars for homeless residents</strong> living there to help with transportation. The program works with partner organizations to secure donated vehicles and cover basic registration. Residents also coordinate group errands and carpooling to Mangum and surrounding areas.</div>
-        <div class="info-block"><h3>🍲 Community Hub & Support</h3>Shared outdoor kitchen, dining area, and planned community center (phase 1). Laundry facilities, tool library, and a permaculture garden. Residents work together to build resilience and self-sufficiency.</div>
+        <div class="info-block"><h3>🏡 Ownership & Costs</h3><span class="highlight">Down payment: $350</span> • <span class="highlight">Monthly: $100 per household</span> → you get a <strong>quarter acre</strong> that you will eventually own. No hidden fees, trust agreement with fair rules (no violence, democratic vote-out process). Residents gain full control of upgrades after core amenities are in place.</div>
+        <div class="info-block"><h3>🏢 Community Center & Kitchen</h3>OCP will <strong>build and equip a community center</strong> featuring a full kitchen, dining area, meeting space, and laundry facilities. This hub will host shared meals, workshops, and community events, fostering connection and mutual aid.</div>
+        <div class="info-block"><h3>🚐 Transportation & Services</h3>OCP advocates for <strong>free or low-cost vehicles</strong> for homeless residents moving into Macomb. Partner organizations help secure donated cars and registrations. Group carpools to nearby Macomb and surrounding towns for errands, medical visits, and supply runs.</div>
       </div>
 
       <div class="info-grid">
-        <div class="info-block"><h3>🛡️ Security & First Responders</h3><strong>Members will elect security guards and first responders</strong> from within the community, and they will go through professional training (CPR, first aid, conflict de-escalation, and firearm safety where applicable). This democratic, community-led approach ensures accountability and shared responsibility for safety.</div>
-        <div class="info-block"><h3>⚡ Power & Sustainability</h3>Solar infrastructure + generator backup for community essentials. Residents will receive training on maintaining renewable systems. Long-term vision includes wind energy and battery storage expansion.</div>
-        <div class="info-block"><h3>🌱 Agriculture & Training</h3>Community gardens, hoop houses, and agricultural education. OCP facilitates workshops on off-grid living, solar installation, water management, and small business skills.</div>
+        <div class="info-block"><h3>🛡️ Security & First Responders</h3><strong>Members will elect security guards and first responders</strong> from within the community, with professional training (CPR, first aid, conflict de-escalation, firearm safety where applicable). Democratic oversight ensures accountability and shared responsibility for safety.</div>
+        <div class="info-block"><h3>🌱 Agriculture & Training</h3>Community gardens, fruit trees, and permaculture zones around the pond. OCP facilitates workshops on off-grid basics, small-scale farming, solar/battery systems, and financial literacy. Mentors from Oklahoma organizations provide ongoing guidance.</div>
       </div>
 
-      <div class="info-block" style="margin-top: 0.5rem;">
-        <h3>Community Rules & Independence</h3>
-        <p><strong>No curfew or authoritarian rules</strong> — this is your land. The trust agreement focuses on respect, non-violence, and cooperation. Beneficiaries can vote out disruptive members, ensuring safety. Residents gain full control of upgrades after initial infrastructure (water tanks, solar hub, restrooms) is completed.</p>
-        <p style="margin-top: 10px;"><strong>✨ The Open Church Project provides mentors, volunteers, and organizational support from across Oklahoma — empowering you to build a thriving, off-grid, land-owning community near Mangum.</strong></p>
-      </div>
+      <!-- Removed "Community Rules & Independence" block per your request -->
       <hr>
       <div style="display: flex; justify-content: center; gap: 20px; margin-top: 1rem;">
         <button id="backToHomeFromOcp2Btn" class="btn-secondary">← Back to Home</button>
@@ -537,20 +548,59 @@
     </div>
   </div>
 
+  <!-- ================= FREE LAND FORM PAGE (centered headers + prominent important message) ================= -->
+  <div id="freeLandPage" class="page">
+    <div class="section-card" style="max-width: 950px; margin-left: auto; margin-right: auto;">
+      <h2 style="text-align: center;">📝 Free Land Registration</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 1.2rem; text-align: center;">The Open Church Project accepts donated land and partners with generous supporters to expand our mission. However, <strong>free land is not guaranteed</strong> and the process requires patience.</p>
+      
+      <!-- IMPORTANT CALLOUT (in bulk) -->
+      <div class="important-callout">
+        ⚡ <strong>IMPORTANT:</strong> The fastest and most reliable way to receive land through OCP is to join one of our existing community projects (OCP-1 or OCP-2) with a small down payment and monthly dues. Those projects are active and ready for new members.
+      </div>
+
+      <div class="info-block" style="margin-bottom: 1.8rem; text-align: left;">
+        <h3 style="text-align: center;">⏳ Timeline & Reality</h3>
+        <p>Submitting this form begins a review process that typically takes <strong>30–90 days</strong>. In cases where no land donations or partnerships are immediately available, the process may take <strong>significantly longer</strong>.</p>
+      </div>
+
+      <div class="info-block" style="margin-bottom: 1.8rem; text-align: left;">
+        <h3 style="text-align: center;">🤝 How Free Land Works</h3>
+        <p>If you submit this form, you will be placed on a waiting list. When land is donated or a partnership is formed, OCP will contact applicants. <strong>Free land recipients are still expected to contribute to community building and pay minimal monthly association fees (typically $50–$100) for shared amenities like water, electric, and infrastructure.</strong></p>
+      </div>
+
+      <div class="info-block" style="margin-bottom: 1.8rem; text-align: left;">
+        <h3 style="text-align: center;">💡 Best Advice: Join an Active OCP Community</h3>
+        <p>Instead of waiting for free land, we strongly encourage you to explore <strong>OCP-1 (Choctaw County)</strong> or <strong>OCP-2 (Macomb, OK)</strong>. Both have land ready now, transparent pricing, and a clear path to ownership. You can secure a quarter acre for a deposit of $350–$400 and monthly payments of $100. That's a fraction of typical land costs, and you become part of a supportive, self-governing community immediately.</p>
+        <p style="margin-top: 0.5rem;">Use the navigation buttons above to learn more about each active project and sign up today.</p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9UPUFTl1A1b-GeTxhjYRrMgNpyjYBCOsh0kBPBVemElUddg/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="signup-button" style="font-size: 1.2rem;">📋 Free Land Registration Form →</a>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #C9C3B2;">Opens in a new tab – Google Form</p>
+      </div>
+      
+      <hr style="margin: 1rem 0;">
+      <div style="display: flex; justify-content: center; gap: 20px;">
+        <button id="backToHomeFromFreeLandBtn" class="btn-secondary">← Back to Home</button>
+        <button id="exploreOcp2FromFreeLandBtn" class="btn-primary">🏞️ View OCP-2 (Macomb) →</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>© 2026 The Open Church Project — Restoring hope, land equity & self-sustaining communities in Oklahoma.</p>
-    <p style="margin-top: 0.5rem;">📍 OCP-1: Choctaw County, near Hugo, OK | OCP-2: Greer County, near Mangum, OK | Volunteer + partner inquiries welcome</p>
+    <p style="margin-top: 0.5rem;">📍 OCP-1: Choctaw County, near Hugo, OK | OCP-2: Macomb, OK (7.5 acres, pond, utilities at road) | Volunteer + partner inquiries welcome</p>
   </footer>
 </div>
 
-<!-- Hidden audio element: plays only when OCP-1 page becomes active -->
+<!-- Hidden audio element -->
 <audio id="ocpThemeSong" preload="auto" style="display: none;">
   <source src="https://github.com/TitanBusinessPros/OCP-Land/raw/main/Open%20Church%20Over%20Acres%20(1).mp34" type="audio/mpeg">
-  Your browser does not support the audio element.
 </audio>
 
 <script>
-  // ----- HOME CAROUSEL NOW INCLUDES ALL 10 IMAGES (original 5 + 5 Mangum images) -----
+  // ----- IMAGE ARRAYS -----
   const originalImages = [
     "https://github.com/TitanBusinessPros/OCP-Land/raw/main/Fenced.webp",
     "https://github.com/TitanBusinessPros/OCP-Land/raw/main/Pond-1.webp",
@@ -558,52 +608,46 @@
     "https://github.com/TitanBusinessPros/OCP-Land/raw/main/Well-Power.webp",
     "https://github.com/TitanBusinessPros/OCP-Land/raw/main/meadow.webp"
   ];
-  const mangumImages = [
-    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Mangum-1.webp",
-    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Mangum-2.webp",
-    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Mangum-3.webp",
-    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Mangum-4.webp",
-    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Mangum-5.webp"
+  const macombImages = [
+    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Macomb-1.jpg",
+    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Macomb-2.jpg",
+    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Macomb-3.jpg",
+    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Macomb-4.jpg",
+    "https://github.com/openchurchproject/OCP-Land-1/raw/main/Macomb-5.jpg"
   ];
-  const homeCarouselImages = [...originalImages, ...mangumImages];
-
-  // OCP-1 carousel remains original 5 images
+  const homeCarouselImages = [...originalImages, ...macombImages];
   const ocp1CarouselImages = [...originalImages];
-
-  // OCP-2 carousel uses the 5 Mangum images
-  const ocp2CarouselImages = [...mangumImages];
+  const ocp2CarouselImages = [...macombImages];
   
   // DOM elements
   const homePageDiv = document.getElementById('homePage');
   const ocp1PageDiv = document.getElementById('ocp1Page');
   const ocp2PageDiv = document.getElementById('ocp2Page');
+  const freeLandPageDiv = document.getElementById('freeLandPage');
+  
   const homeNavBtn = document.getElementById('homeNavBtn');
+  const freeLandNavBtn = document.getElementById('freeLandNavBtn');
   const ocp1NavBtn = document.getElementById('ocp1NavBtn');
   const ocp2NavBtn = document.getElementById('ocp2NavBtn');
+  
   const backToHomeBtn = document.getElementById('backToHomeBtn');
   const backToHomeFromOcp2Btn = document.getElementById('backToHomeFromOcp2Btn');
+  const backToHomeFromFreeLandBtn = document.getElementById('backToHomeFromFreeLandBtn');
+  const exploreOcp2FromFreeLandBtn = document.getElementById('exploreOcp2FromFreeLandBtn');
+  
   const exploreOcp1BtnHome = document.getElementById('exploreOcp1BtnHome');
   const exploreOcp2BtnHome = document.getElementById('exploreOcp2BtnHome');
+  
   const homeImg = document.getElementById('homeCarouselImg');
   const ocp1Img = document.getElementById('ocp1CarouselImg');
   const ocp2Img = document.getElementById('ocp2CarouselImg');
-  
   const ocpAudio = document.getElementById('ocpThemeSong');
   
-  function playOcp1Audio() {
-    if (!ocpAudio) return;
-    ocpAudio.pause();
-    ocpAudio.currentTime = 0;
-    ocpAudio.play().catch(err => console.warn("Audio autoplay prevented:", err));
-  }
-  function pauseOcp1Audio() {
-    if (!ocpAudio) return;
-    ocpAudio.pause();
-  }
+  // Carousel functions
+  let homeCurrent = 0, homeInterval = null;
+  let ocp1Current = 0, ocp1Interval = null;
+  let ocp2Current = 0, ocp2Interval = null;
   
-  // Home Carousel (10 images)
-  let homeCurrent = 0;
-  let homeInterval = null;
   function startHomeCarousel() {
     if (homeInterval) clearInterval(homeInterval);
     if (!homeImg) return;
@@ -615,9 +659,6 @@
   function stopHomeCarousel() { if (homeInterval) { clearInterval(homeInterval); homeInterval = null; } }
   function resetHomeCarousel() { homeCurrent = 0; if (homeImg) homeImg.src = homeCarouselImages[0]; }
   
-  // OCP-1 Carousel
-  let ocp1Current = 0;
-  let ocp1Interval = null;
   function startOcp1Carousel() {
     if (ocp1Interval) clearInterval(ocp1Interval);
     if (!ocp1Img) return;
@@ -629,9 +670,6 @@
   function stopOcp1Carousel() { if (ocp1Interval) { clearInterval(ocp1Interval); ocp1Interval = null; } }
   function resetOcp1Carousel() { ocp1Current = 0; if (ocp1Img) ocp1Img.src = ocp1CarouselImages[0]; }
   
-  // OCP-2 Carousel
-  let ocp2Current = 0;
-  let ocp2Interval = null;
   function startOcp2Carousel() {
     if (ocp2Interval) clearInterval(ocp2Interval);
     if (!ocp2Img) return;
@@ -643,80 +681,78 @@
   function stopOcp2Carousel() { if (ocp2Interval) { clearInterval(ocp2Interval); ocp2Interval = null; } }
   function resetOcp2Carousel() { ocp2Current = 0; if (ocp2Img) ocp2Img.src = ocp2CarouselImages[0]; }
   
-  // Navigation
+  function playOcp1Audio() { if (ocpAudio) { ocpAudio.pause(); ocpAudio.currentTime = 0; ocpAudio.play().catch(e => console.warn("Audio blocked")); } }
+  function pauseOcp1Audio() { if (ocpAudio) ocpAudio.pause(); }
+  
+  // Page switching
   function showHomePage() {
     if (homePageDiv.classList.contains('active-page')) return;
-    stopOcp1Carousel();
-    stopOcp2Carousel();
-    pauseOcp1Audio();
+    stopOcp1Carousel(); stopOcp2Carousel(); pauseOcp1Audio();
     homePageDiv.classList.add('active-page');
     ocp1PageDiv.classList.remove('active-page');
     ocp2PageDiv.classList.remove('active-page');
-    resetHomeCarousel();
-    startHomeCarousel();
+    freeLandPageDiv.classList.remove('active-page');
+    resetHomeCarousel(); startHomeCarousel();
     document.title = "The Open Church Project | Home";
   }
   
   function showOcp1Page() {
     if (ocp1PageDiv.classList.contains('active-page')) return;
-    stopHomeCarousel();
-    stopOcp2Carousel();
+    stopHomeCarousel(); stopOcp2Carousel();
     homePageDiv.classList.remove('active-page');
     ocp2PageDiv.classList.remove('active-page');
+    freeLandPageDiv.classList.remove('active-page');
     ocp1PageDiv.classList.add('active-page');
-    resetOcp1Carousel();
-    startOcp1Carousel();
+    resetOcp1Carousel(); startOcp1Carousel();
     document.title = "The Open Church Project | OCP-1 Property";
     playOcp1Audio();
   }
   
   function showOcp2Page() {
     if (ocp2PageDiv.classList.contains('active-page')) return;
-    stopHomeCarousel();
-    stopOcp1Carousel();
-    pauseOcp1Audio();
+    stopHomeCarousel(); stopOcp1Carousel(); pauseOcp1Audio();
     homePageDiv.classList.remove('active-page');
     ocp1PageDiv.classList.remove('active-page');
+    freeLandPageDiv.classList.remove('active-page');
     ocp2PageDiv.classList.add('active-page');
-    resetOcp2Carousel();
-    startOcp2Carousel();
-    document.title = "The Open Church Project | OCP-2 — Greer County, Mangum OK";
+    resetOcp2Carousel(); startOcp2Carousel();
+    document.title = "The Open Church Project | OCP-2 — Macomb, OK";
+  }
+  
+  function showFreeLandPage() {
+    if (freeLandPageDiv.classList.contains('active-page')) return;
+    stopHomeCarousel(); stopOcp1Carousel(); stopOcp2Carousel(); pauseOcp1Audio();
+    homePageDiv.classList.remove('active-page');
+    ocp1PageDiv.classList.remove('active-page');
+    ocp2PageDiv.classList.remove('active-page');
+    freeLandPageDiv.classList.add('active-page');
+    document.title = "The Open Church Project | Free Land Registration";
   }
   
   // Event listeners
-  if (homeNavBtn) homeNavBtn.addEventListener('click', showHomePage);
-  if (ocp1NavBtn) ocp1NavBtn.addEventListener('click', showOcp1Page);
-  if (ocp2NavBtn) ocp2NavBtn.addEventListener('click', showOcp2Page);
+  homeNavBtn.addEventListener('click', showHomePage);
+  freeLandNavBtn.addEventListener('click', showFreeLandPage);
+  ocp1NavBtn.addEventListener('click', showOcp1Page);
+  ocp2NavBtn.addEventListener('click', showOcp2Page);
   if (backToHomeBtn) backToHomeBtn.addEventListener('click', showHomePage);
   if (backToHomeFromOcp2Btn) backToHomeFromOcp2Btn.addEventListener('click', showHomePage);
+  if (backToHomeFromFreeLandBtn) backToHomeFromFreeLandBtn.addEventListener('click', showHomePage);
+  if (exploreOcp2FromFreeLandBtn) exploreOcp2FromFreeLandBtn.addEventListener('click', showOcp2Page);
   if (exploreOcp1BtnHome) exploreOcp1BtnHome.addEventListener('click', showOcp1Page);
   if (exploreOcp2BtnHome) exploreOcp2BtnHome.addEventListener('click', showOcp2Page);
   
   // Initialize
   (function init() {
-    stopHomeCarousel();
-    stopOcp1Carousel();
-    stopOcp2Carousel();
-    pauseOcp1Audio();
+    stopHomeCarousel(); stopOcp1Carousel(); stopOcp2Carousel(); pauseOcp1Audio();
     homePageDiv.classList.add('active-page');
     ocp1PageDiv.classList.remove('active-page');
     ocp2PageDiv.classList.remove('active-page');
-    resetHomeCarousel();
-    startHomeCarousel();
+    freeLandPageDiv.classList.remove('active-page');
+    resetHomeCarousel(); startHomeCarousel();
     document.title = "The Open Church Project | Home";
-    if (ocpAudio) {
-      ocpAudio.load();
-      ocpAudio.pause();
-      ocpAudio.currentTime = 0;
-    }
+    if (ocpAudio) { ocpAudio.load(); ocpAudio.pause(); ocpAudio.currentTime = 0; }
     if (ocp2Img) ocp2Img.src = ocp2CarouselImages[0];
   })();
-  
-  // Error handling
-  if (ocpAudio) ocpAudio.addEventListener('error', () => console.warn("Audio file could not be loaded."));
-  if (homeImg) homeImg.onerror = () => {};
-  if (ocp1Img) ocp1Img.onerror = () => {};
-  if (ocp2Img) ocp2Img.onerror = () => {};
 </script>
 </body>
 </html>
